@@ -1,0 +1,199 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Task Management</title>
+
+    <link rel="stylesheet" href="../static/css/style.css">
+</head>
+
+<body>
+
+    <!-- HEADER -->
+
+    <header class="header">
+
+        <h2>Task Management</h2>
+
+        <button type="button" id="logoutButton">
+            Logout
+        </button>
+
+    </header>
+
+
+    <main class="container">
+
+        <!-- ADD TASK FORM -->
+
+        <section class="task-form">
+
+            <h2 id="formTitle">Add New Task</h2>
+
+            <form id="taskForm">
+
+                <!-- TASK TITLE -->
+
+                <label for="title">Task Title</label>
+
+                <input
+                    type="text"
+                    id="title"
+                    placeholder="Enter task title"
+                    maxlength="100"
+                    required
+                >
+
+
+                <!-- DESCRIPTION -->
+
+                <label for="description">Description</label>
+
+                <textarea
+                    id="description"
+                    placeholder="Enter task description"
+                ></textarea>
+
+
+                <!-- TASK STATUS -->
+
+                <label for="status">Task Status</label>
+
+                <select id="status" required>
+
+                    <option value="Pending">Pending</option>
+
+                    <option value="In Progress">In Progress</option>
+
+                    <option value="Completed">Completed</option>
+
+                </select>
+
+
+                <!-- DUE DATE -->
+
+                <label for="due_date">Due Date</label>
+
+                <input
+                    type="date"
+                    id="due_date"
+                >
+
+
+                <!-- FORM BUTTONS -->
+
+                <button type="submit" id="saveTaskButton">
+                    Add Task
+                </button>
+
+                <button
+                    type="button"
+                    id="cancelEditButton"
+                    style="display: none;"
+                >
+                    Cancel Edit
+                </button>
+
+            </form>
+
+            <p id="taskMessage"></p>
+
+        </section>
+
+
+        <!-- SEARCH, FILTER AND SORT -->
+
+        <section class="task-controls">
+
+            <!-- SEARCH -->
+
+            <input
+                type="text"
+                id="searchInput"
+                placeholder="Search task by title..."
+            >
+
+            <button type="button" id="searchButton">
+                Search
+            </button>
+
+            <button type="button" id="clearSearchButton">
+                Clear
+            </button>
+
+
+            <!-- FILTER BY STATUS -->
+
+            <select id="statusFilter">
+
+                <option value="">All Statuses</option>
+
+                <option value="Pending">Pending</option>
+
+                <option value="In Progress">In Progress</option>
+
+                <option value="Completed">Completed</option>
+
+            </select>
+
+
+            <!-- SORT TASKS -->
+
+            <select id="sortOrder">
+
+                <option value="-1">Newest First</option>
+
+                <option value="1">Oldest First</option>
+
+            </select>
+
+        </section>
+
+
+        <!-- TASK LIST -->
+
+        <section class="tasks-section">
+
+            <h2>My Tasks</h2>
+
+            <div id="tasksList">
+
+                <!-- Tasks will appear here -->
+
+            </div>
+
+        </section>
+
+
+        <!-- PAGINATION -->
+
+        <div class="pagination">
+
+            <button type="button" id="prevButton">
+                Previous
+            </button>
+
+            <span id="pageInfo">
+                Page 1
+            </span>
+
+            <button type="button" id="nextButton">
+                Next
+            </button>
+
+        </div>
+
+    </main>
+
+
+    <!-- JAVASCRIPT -->
+
+    <script src="../static/js/tasks.js"></script>
+
+</body>
+
+</html>
