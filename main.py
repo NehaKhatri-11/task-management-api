@@ -1,6 +1,7 @@
 from fastapi import FastAPI, HTTPException, Depends, status
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.security import OAuth2PasswordBearer, OAuth2PasswordRequestForm
+from fastapi.responses import RedirectResponse
 
 from bson import ObjectId
 from datetime import datetime, timezone, timedelta
@@ -14,6 +15,10 @@ from database import users_collection, tasks_collection,revoked_tokens_collectio
 from schemas import UserSignup, TaskCreate, TaskUpdate
 
 app = FastAPI()
+
+@app.get("/", include_in_schema=False)
+def home():
+    return RedirectResponse(url="/docs")
 
 # CORS
 app.add_middleware(
