@@ -8,6 +8,7 @@ from datetime import datetime, timezone, timedelta
 
 import jwt
 import hashlib
+import os
 import re
 
 from pwdlib import PasswordHash
@@ -33,7 +34,7 @@ app.add_middleware(
 )
 
 # JWT settings
-SECRET_KEY = "my_secret_key_change_later"
+SECRET_KEY = os.getenv("SECRET_KEY")
 ALGORITHM = "HS256"
 TOKEN_EXPIRE_MINUTES = 30
 
