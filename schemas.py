@@ -25,3 +25,13 @@ class UserSignup(BaseModel):
 class UserLogin(BaseModel):
     email: EmailStr
     password: str = Field(min_length=1)    
+
+# Forgot Password Schema
+class ForgotPasswordRequest(BaseModel):
+    email: EmailStr
+
+
+# Reset Password Schema
+class ResetPasswordRequest(BaseModel):
+    token: str
+    new_password: str = Field(min_length=8)    
